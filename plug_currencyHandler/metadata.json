@@ -1,0 +1,14 @@
+{
+    "name": "Money accounting",
+    "version": "1.0.0",
+    "libraries": [
+        {
+            "name": "munnin_quick_types",
+            "version": "1.0.0"
+        },
+        {
+            "name": "munnin_icons",
+            "version": "1.0.0"
+        }
+    ]
+}
