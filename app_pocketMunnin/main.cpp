@@ -4,7 +4,7 @@
 #include "id.h"
 #include "crypt.h"
 #include "guiApplicationAF.h"
-#include "tri
+#include "trinn.h"
 
 int main(int argc, char** argv)
 {
@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 
     GuiApplicationAF app(argc, argv);
     GuiApplicationAF::addLibraryPath(QDir::current().absolutePath());
-    app.registratePlugin(new )
+    app.registratePlugin(new Trinn::TrinnPlugin(&app));
 
 //    PluginHandler handler;
 //    handler.parsePluginDirectory();
