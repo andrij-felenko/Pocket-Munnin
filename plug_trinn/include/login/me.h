@@ -2,12 +2,11 @@
 #include <QtCore/QObject>
 #include "id.h"
 
-namespace Trinn {
-class Me : public QObject, public Id
+namespace Trinn { class Me; }
+
+class Trinn::Me : public QObject, public AFlib::AccountId
 {
 public:
     explicit Me() = default;
     virtual ~Me() override = default;
 };
-}
-

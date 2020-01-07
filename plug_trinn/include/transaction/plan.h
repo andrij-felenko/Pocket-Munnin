@@ -22,7 +22,7 @@ signals:
     void archiveChanged(bool archive);
 
 protected:
-    Plan(QString title, Id id, QObject* parent = nullptr);
+    Plan(QString title, SubjectId id, QObject* parent = nullptr);
     bool m_archive = false;
 };
 }

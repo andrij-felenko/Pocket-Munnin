@@ -1,13 +1,13 @@
 #include "transaction/transfer.h"
 
-Trinn::Transfer::Transfer(QString title, Id id, QObject* parent)
+Trinn::Transfer::Transfer(QString title, SubjectId id, QObject* parent)
     : BaseTransaction(title, id, parent)
 {
     //
 }
 
 Trinn::Transfer::Transfer(QString title, uint user, uint id, QObject *parent )
-    : Transfer(title, Id(user, LotType::Transaction, Id::unite(2, 3, Ttype::Spend, 19, id)), parent)
+    : Transfer(title, Id(user, uint(LotType::Transaction), Id::unite(2, 3, Ttype::Spend, 19, id)), parent)
 {
     //
 }

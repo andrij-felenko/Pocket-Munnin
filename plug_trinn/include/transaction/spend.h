@@ -28,7 +28,7 @@ signals:
     void merchantChanged(quint64 sender);
 
 protected:
-    Spend(QString title, Id id, QObject* parent = nullptr);
+    Spend(QString title, SubjectId id, QObject* parent = nullptr);
 //    uint m_project;
     uint m_category = 0;
 };

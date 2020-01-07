@@ -1,6 +1,6 @@
 #include "type/base.h"
 
-Trinn::Base::Base(QString title, Id id, QObject *parent)
+Trinn::Base::Base(QString title, quint16 id, QObject *parent)
     : QObject(parent), Id(id), m_title(title)
 {
     //

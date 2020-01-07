@@ -1,6 +1,6 @@
 #include "subject/subject.h"
 
-Trinn::Subject::Subject(QString title, Id id, QObject* parent)
+Trinn::Subject::Subject(QString title, SubjectId id, QObject* parent)
     : Base(title, id, parent)
 {
     //
@@ -11,12 +11,12 @@ QString Trinn::Subject::uid() const
     return m_uid;
 }
 
-Trinn::SubjectType Trinn::Subject::subjectType() const
+AFlib::SubjectType Trinn::Subject::subjectType() const
 {
     return m_subjectType;
 }
 
-QList<Trinn::Currency> Trinn::Subject::cashList() const
+QList <CurrencyEnum> Trinn::Subject::cashList() const
 {
     return m_cashList;
 }
@@ -30,7 +30,7 @@ void Trinn::Subject::setUid(QString uid)
     emit uidChanged(m_uid);
 }
 
-void Trinn::Subject::addToCashList(Currency cashName)
+void Trinn::Subject::addToCashList(CurrencyEnum cashName)
 {
     if (m_cashList.contains(cashName))
         return;

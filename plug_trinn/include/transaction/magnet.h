@@ -1,6 +1,7 @@
 #pragma once
 #include <QtCore/QDateTime>
 #include "type/base.h"
+#include "trinnEnum.h"
 
 namespace Trinn {
 class Magnet : public Base
@@ -38,7 +39,7 @@ signals:
     void accountChanged(quint64 account);
 
 protected:
-    Magnet(QString title, Id id, QObject* parent = nullptr);
+    Magnet(QString title, SubjectId id, QObject* parent = nullptr);
     QDate m_date;
     QTime m_time;
     double m_value;

@@ -24,7 +24,7 @@ signals:
     void confirmChanged(Tconfirm confirm);
 
 private:
-    Transfer(QString title, Id id, QObject* parent = nullptr);
+    Transfer(QString title, SubjectId id, QObject* parent = nullptr);
 //    uint m_project;
     Tconfirm m_confirm;
 };

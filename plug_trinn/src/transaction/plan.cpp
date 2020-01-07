@@ -1,13 +1,13 @@
 #include "transaction/plan.h"
 
-Trinn::Plan::Plan(QString title, Id id, QObject* parent)
+Trinn::Plan::Plan(QString title, SubjectId id, QObject* parent)
     : BaseTransaction(title, id, parent)
 {
     //
 }
 
 Trinn::Plan::Plan(QString title, uint user, uint id, QObject *parent )
-    : Plan(title, Id(user, LotType::Transaction, Id::unite(2, 3, Ttype::Spend, 19, id)), parent)
+    : Plan(title, Id(user, uint(LotType::Transaction), Id::unite(2, 3, Ttype::Spend, 19, id)), parent)
 {
     //
 }

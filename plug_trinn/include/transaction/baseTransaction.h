@@ -28,7 +28,7 @@ signals:
     void currencyCoefChanged(double currencyCoef);
 
 protected:
-    BaseTransaction(QString title, Id id, QObject* parent = nullptr);
+    BaseTransaction(QString title, SubjectId id, QObject* parent = nullptr);
     quint64 m_recipient;
     double m_currencyCoef;
 };

@@ -1,13 +1,13 @@
 #include "transaction/magnet.h"
 
-Trinn::Magnet::Magnet(QString title, Trinn::Id id, QObject *parent)
+Trinn::Magnet::Magnet(QString title, SubjectId id, QObject *parent)
     : Base(title, id, parent)
 {
     //
 }
 
 Trinn::Magnet::Magnet(QString title, uint user, uint id, QObject *parent)
-    : Magnet(title, Id(user, LotType::Transaction, Id::unite(2, 3, Ttype::Magnet, 19, id)), parent)
+    : Magnet(title, Id(user, uint(LotType::Transaction), Id::unite(2, 3, Ttype::Magnet, 19, id)), parent)
 {
     //
 }

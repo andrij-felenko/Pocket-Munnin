@@ -1,13 +1,16 @@
 #include "transaction/baseTransaction.h"
 
-Trinn::BaseTransaction::BaseTransaction(QString title, Id id, QObject* parent)
+using namespace AFlib;
+using namespace Trinn;
+
+Trinn::BaseTransaction::BaseTransaction(QString title, SubjectId id, QObject* parent)
     : Magnet(title, id, parent)
 {
     //
 }
 
 Trinn::BaseTransaction::BaseTransaction(QString title, uint user, uint id, QObject *parent)
-    : BaseTransaction(title, Id(user, LotType::Transaction, Id::unite(2, 3, Ttype::Magnet, 19, id)), parent)
+    : BaseTransaction(title, Id(user, uint(LotType::Transaction), Id::unite(2, 3, Ttype::Magnet, 19, id)), parent)
 {
     //
 }

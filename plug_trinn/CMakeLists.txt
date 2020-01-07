@@ -3,8 +3,6 @@ project(plug_trinn VERSION 0.0.1)
 
 set (trinn_h
     include/trinn.h
-    include/crypt.h
-    include/id.h
     include/trinnEnum.h
     include/login/crypt_Copy.h
     include/login/loginDatas.h
@@ -32,8 +30,6 @@ set (trinn_h
 
 set (trinn_cpp
     src/trinn.cpp
-    src/crypt.cpp
-    src/id.cpp
     src/login/crypt_Copy.cpp
     src/login/loginDatas.cpp
     src/login/me.cpp
@@ -65,5 +61,6 @@ add_library(plug_trinn SHARED ${trinn_h} ${trinn_cpp})
 
 set_target_properties(plug_trinn PROPERTIES PREFIX "plug_" OUTPUT_NAME "trinn")
 target_include_directories(plug_trinn PUBLIC include
-    PUBLIC $<TARGET_PROPERTY:lib_quickAF,INTERFACE_INCLUDE_DIRECTORIES>)
-target_link_libraries(plug_trinn lib_baseAF lib_quickAF Qt5::Core Qt5::Quick Qt5::Qml)
+    PUBLIC $<TARGET_PROPERTY:lib_quickAF,INTERFACE_INCLUDE_DIRECTORIES>
+    PUBLIC $<TARGET_PROPERTY:lib_currencyAF,INTERFACE_INCLUDE_DIRECTORIES>)
+target_link_libraries(plug_trinn lib_baseAF lib_quickAF lib_currencyAF Qt5::Core Qt5::Quick Qt5::Qml)

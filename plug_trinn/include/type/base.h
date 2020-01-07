@@ -4,15 +4,17 @@
 #include <QtCore/QObject>
 #include <QtCore/QDateTime>
 #include "id.h"
+#include "trinnEnum.h"
 
-namespace Trinn {
-class Base : public QObject, public Id
+namespace Trinn { class Base; }
+
+class Trinn::Base : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(QDateTime lastUpdate READ lastUpdate NOTIFY lastUpdateChanged)
 public:
-    Base(QString title, Id id, QObject* parent = nullptr);
+    Base(QString title, quint16 id, QObject* parent = nullptr);
     virtual ~Base() = default;
 
     virtual QString title() const final;
@@ -32,6 +34,5 @@ private:
     QString m_title;
     QDateTime m_lastUpdate;
 };
-}
 
 #endif //TRINNBASE

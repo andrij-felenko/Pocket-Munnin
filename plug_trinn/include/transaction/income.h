@@ -11,6 +11,6 @@ public:
     virtual ~Income() = default;
 
 protected:
-    Income(QString title, Id id, QObject* parent = nullptr);
+    Income(QString title, SubjectId id, QObject* parent = nullptr);
 };
 }

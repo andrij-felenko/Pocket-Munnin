@@ -1,13 +1,13 @@
 #include "transaction/spend.h"
 
-Trinn::Spend::Spend(QString title, Id id, QObject* parent)
+Trinn::Spend::Spend(QString title, SubjectId id, QObject* parent)
     : BaseTransaction(title, id, parent)
 {
     //
 }
 
 Trinn::Spend::Spend(QString title, uint user, uint id, QObject *parent )
-    : Spend(title, Id(user, LotType::Transaction, Id::unite(2, 3, Ttype::Spend, 19, id)), parent)
+    : Spend(title, Id(user, uint(LotType::Transaction), Id::unite(2, 3, Ttype::Spend, 19, id)), parent)
 {
     //
 }

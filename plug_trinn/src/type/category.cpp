@@ -3,7 +3,7 @@
 using namespace Trinn;
 
 Category::Category(QString title, uint user, uint category, uint sub, QObject *parent)
-    : Base(title, Id(user, LotType::Category, (category << 8) + sub), parent)
+    : Base(title, Id(user, uint(LotType::Category), (category << 8) + sub), parent)
 {
     //
 }

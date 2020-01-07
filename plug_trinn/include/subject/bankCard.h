@@ -8,7 +8,7 @@ class BankCard : public Subject
 {
     Q_OBJECT
 public:
-    BankCard(QString title, Id id, QObject *parent = nullptr);
+    BankCard(QString title, SubjectId id, QObject *parent = nullptr);
     virtual ~BankCard() = default;
 
 private:

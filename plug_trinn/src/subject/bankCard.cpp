@@ -2,7 +2,7 @@
 
 using namespace Trinn;
 
-BankCard::BankCard(QString title, Id id, QObject *parent)
+BankCard::BankCard(QString title, SubjectId id, QObject *parent)
     : Subject(title, id, parent)
 {
     //
