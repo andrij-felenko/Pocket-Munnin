@@ -3,9 +3,9 @@
 
 #include <QtQuick/QQuickItem>
 
-#include "pluginMetadata.h"
-#include "libHandler.h"
-#include "pluginGui.h"
+#include "lib_baseAF/pluginMetadata.h"
+#include "lib_baseAF/libHandler.h"
+#include "lib_quickAF/pluginGui.h"
 #include "dataHandler.h"
 
 class MoneyAccounting : public AFlib::PluginGui

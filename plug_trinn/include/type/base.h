@@ -3,7 +3,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QDateTime>
-#include "id.h"
+#include "lib_baseAF/id.h"
 #include "trinnEnum.h"
 
 namespace Trinn { class Base; }

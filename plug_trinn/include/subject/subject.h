@@ -1,6 +1,6 @@
 #pragma once
 #include "type/base.h"
-#include "currencyType.h"
+#include "lib_currencyAF/currencyType.h"
 
 namespace Trinn {
 class TrinnSubjectId;

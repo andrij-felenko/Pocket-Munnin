@@ -4,7 +4,7 @@
 #include <QtCore/QtGlobal>
 #include <QtCore/QString>
 #include "trinnEnum.h"
-#include "plugin.h"
+#include "lib_baseAF/plugin.h"
 
 namespace Trinn { class TrinnPlugin; }
 
