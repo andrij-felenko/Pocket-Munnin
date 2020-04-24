@@ -1,0 +1,33 @@
+#pragma once
+#include <QtCore/QDateTime>
+#include <AFbaseLib>
+#include "trinnEnum.h"
+
+namespace Trinn {
+    class Magnet;
+}
+
+class Trinn::Magnet : public QObject, public AFIdObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QDate  date     READ date    WRITE setDate    NOTIFY dateChanged)
+    Q_PROPERTY(QTime  time     READ time    WRITE setTime    NOTIFY timeChanged)
+    Q_PROPERTY(double value    READ value   WRITE setValue   NOTIFY valueChanged)
+public:
+    explicit Magnet(AFIdObjectPtr object, QObject *parent = nullptr);
+    virtual ~Magnet() = default;
+
+    virtual QDate  date()  const final;
+    virtual QTime  time()  const final;
+    virtual double value() const final;
+
+public slots:
+    virtual void setDate(const QDate &date)  final;
+    virtual void setTime(const QTime &time)   final;
+    virtual void setValue(double value) final;
+
+signals:
+    void dateChanged(QDate date);
+    void timeChanged(QTime time);
+    void valueChanged(double value);
+};

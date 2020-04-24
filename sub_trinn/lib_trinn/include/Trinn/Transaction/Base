@@ -1,0 +1,41 @@
+#ifndef TRINN_BASE_TRANSACTION_H
+#define TRINN_BASE_TRANSACTION_H
+
+#include "magnet.h"
+#include "subject/object.h"
+
+namespace Trinn {
+    class BaseTransaction;
+}
+
+class Trinn::BaseTransaction : public Magnet
+{
+    Q_OBJECT
+    Q_PROPERTY(Trinn::Object sender    READ sender       WRITE setSender       NOTIFY senderChanged)
+    Q_PROPERTY(Trinn::Object recipient READ recipient    WRITE setRecipient    NOTIFY recipientChanged)
+    Q_PROPERTY(double  currencyCoef    READ currencyCoef WRITE setCurrencyCoef NOTIFY currencyCoefChanged)
+public:
+    explicit BaseTransaction(const AFIdObjectPtr ptr, QObject* parent = nullptr);
+    virtual ~BaseTransaction() = default;
+
+    virtual Trinn::Object sender()    const final;
+    virtual Trinn::Object recipient() const final;
+    virtual double currencyCoef()     const final;
+
+public slots:
+    void setSender(quint64 sender);
+    void setRecipient(quint64 recipient);
+    void setCurrencyCoef(double newCurrencyCoef);
+
+signals:
+    void senderChanged(quint64 sender);
+    void recipientChanged(quint64 recipient);
+    void currencyCoefChanged(double currencyCoef);
+
+protected:
+//    BaseTransaction(QString title, SubjectId id, QObject* parent = nullptr);
+//    quint64 m_recipient;
+//    double m_currencyCoef;
+};
+
+#endif

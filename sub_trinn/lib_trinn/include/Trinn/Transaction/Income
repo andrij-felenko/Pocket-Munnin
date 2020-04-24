@@ -1,0 +1,18 @@
+#pragma once
+#include <QtCore/QDateTime>
+#include <AFbaseLib>
+
+namespace Trinn {
+    class Income;
+}
+
+class Trinn::Income : public AFIdObject
+{
+    Q_OBJECT
+public:
+    explicit Income(QString title, uint user, uint id, QObject *parent = nullptr);
+    virtual ~Income() = default;
+
+protected:
+    Income(QString title, QObject* parent = nullptr);
+};

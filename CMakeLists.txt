@@ -1,4 +1,3 @@
-add_subdirectory(app_pocketMunnin)
-add_subdirectory(plug_currencyHandler)
-add_subdirectory(plug_todoList)
-add_subdirectory(plug_trinn)
+add_subdirectory(app)
+add_subdirectory(sub_todo_list)
+add_subdirectory(sub_trinn)
