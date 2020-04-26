@@ -17,6 +17,11 @@ public:
     Category(AFIdObjectPtr ptr,  QObject *parent = nullptr);
     Category(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Category() = default;
+
+    void addSubCategory(CategoryPtr ptr);
+
+private:
+    QList <CategoryPtr> m_subCategoryList;
 };
 
 typedef Trinn::subject::CategoryPtr TrinnCategoryPtr;

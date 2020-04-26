@@ -47,3 +47,14 @@ Trinn::subject::StorePtr Trinn::model::Subject::findStore(AFIdObject_bit id)
             return it;
     return subject::StorePtr();
 }
+
+void Trinn::model::Subject::restructorCategory()
+{
+    for (auto it : storage()->m_categoryV)
+        if (it->object_b().template parentType <Type>() == Type::Category)
+            if (it->parentId() != 0)
+                for (auto parentIt : storage()->m_categoryV){
+                    parentIt->addSubCategory(it);
+                    break;
+                }
+}

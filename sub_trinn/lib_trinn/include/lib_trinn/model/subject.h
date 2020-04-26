@@ -27,6 +27,8 @@ public:
     Trinn::subject::CategoryPtr findCategory(AFIdObject_bit id);
     Trinn::subject::ProjectPtr  findProject (AFIdObject_bit id);
     Trinn::subject::StorePtr    findStore   (AFIdObject_bit id);
+
+    void restructorCategory();
 };
 
 #endif

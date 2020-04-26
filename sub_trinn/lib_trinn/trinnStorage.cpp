@@ -1,5 +1,6 @@
 #include "trinnStorage.h"
 #include <AFaccountLib>
+#include "model/subject.h"
 
 static Trinn::TransactionStoragePtr storage_ptr;
 
@@ -46,6 +47,8 @@ void Trinn::Storage::reload()
 
     // check all Account for trinn account, if not exist, we need to create this
     // TODO
+
+    modelSubject()->restructorCategory();
 }
 
 void Trinn::Storage::clear()

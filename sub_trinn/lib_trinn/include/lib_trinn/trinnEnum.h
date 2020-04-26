@@ -11,7 +11,7 @@ namespace Trinn {
         Received,
     };
 
-    enum class Type { // 3 bit
+    enum class Type { // 7 bit from 0 to 127
         None = 0,
         Income,
         Magnet,

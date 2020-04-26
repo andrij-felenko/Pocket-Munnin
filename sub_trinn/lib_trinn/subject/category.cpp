@@ -16,3 +16,12 @@ Trinn::subject::Category::Category(AFIdObject *object, QObject *parent)
 {
     //
 }
+
+void Trinn::subject::Category::addSubCategory(CategoryPtr ptr)
+{
+    for (auto it : m_subCategoryList)
+        if (it->object_b() == ptr->object_b())
+            return;
+
+    m_subCategoryList.push_back(ptr);
+}
