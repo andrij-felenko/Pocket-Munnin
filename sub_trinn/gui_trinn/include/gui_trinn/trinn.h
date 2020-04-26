@@ -16,6 +16,8 @@ public:
     Plugin(QObject* parent = qApp);
     virtual ~Plugin() = default;
 
+    virtual QString icon() const override;
+
     QUrl qmlUrl() const override;
     void initialize() override;
 };
