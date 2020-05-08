@@ -2,19 +2,13 @@
 
 static TrinnAccountPtr _defaultAccountPtr;
 
-Trinn::subject::Account::Account(QObject *parent) : QObject(parent)
+Trinn::subject::Account::Account(QObject *parent) : AFIdObjectTemplate(parent)
 {
     //
 }
 
 Trinn::subject::Account::Account(AFIdObjectPtr ptr, QObject *parent)
-    : Account(ptr.data(), parent)
-{
-    //
-}
-
-Trinn::subject::Account::Account(AFIdObject *object, QObject *parent)
-    : QObject(parent), AFIdObject(object)
+    : AFIdObjectTemplate(ptr, parent)
 {
     //
 }
@@ -26,7 +20,7 @@ bool Trinn::subject::Account::monoCurrency() const
 
 Trinn::AccountType Trinn::subject::Account::accountType() const
 {
-    return static_cast <AccountType>(getAttribute(TrinnAttribute::AccountType).toUInt());
+    return static_cast <AccountType>(m_ptr->getAttribute(TrinnAttribute::AccountType).toUInt());
 }
 
 void Trinn::subject::Account::setAccountType(Trinn::AccountType type)
@@ -34,7 +28,7 @@ void Trinn::subject::Account::setAccountType(Trinn::AccountType type)
     if (accountType() == type)
         return;
 
-    setAttribute(TrinnAttribute::AccountType, static_cast <uint> (type));
+    m_ptr->setAttribute(TrinnAttribute::AccountType, static_cast <uint> (type));
     emit monoCurrencyChanged(type == AccountType::MonoCurrency);
 }
 

@@ -12,14 +12,13 @@ namespace Trinn::subject {
     AccountPtr defaultAccountPtr();
 }
 
-class Trinn::subject::Account : public QObject, public AFlib::id::Object
+class Trinn::subject::Account : public AFIdObjectTemplate
 {
     Q_OBJECT
     Q_PROPERTY(bool monoCurrency READ monoCurrency NOTIFY monoCurrencyChanged)
 public:
     explicit Account(QObject *parent = nullptr);
     Account(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Account(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Account() = default;
 
     virtual bool monoCurrency() const final;

@@ -9,12 +9,11 @@ namespace Trinn::subject {
     typedef QSharedPointer <Store> StorePtr;
 }
 
-class Trinn::subject::Store : public QObject, public AFlib::id::Object
+class Trinn::subject::Store : public AFIdObjectTemplate
 {
 public:
     explicit Store(QObject *parent = nullptr);
     Store(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Store(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Store() = default;
 };
 

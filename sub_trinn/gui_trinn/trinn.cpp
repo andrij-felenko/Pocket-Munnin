@@ -7,8 +7,8 @@ Trinn::Plugin::Plugin(QObject *parent) : AFquick::GuiPlugin("Trinn", parent)
 
 QString Trinn::Plugin::icon() const
 {
-    //TODO rewrite
-    return "iio";
+//    return "qrc:/icon/af_base/af_logo.svg";
+    return "qrc:/icon/business/coins.svg";
 }
 
 QUrl Trinn::Plugin::qmlUrl() const

@@ -9,13 +9,12 @@ namespace Trinn::management {
     typedef QSharedPointer <Plan> PlanPtr;
 }
 
-class Trinn::management::Plan : public QObject, public AFlib::id::Object
+class Trinn::management::Plan : public AFIdObjectTemplate
 {
     Q_OBJECT
 public:
     explicit Plan(QObject *parent = nullptr);
     Plan(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Plan(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Plan() = default;
 };
 

@@ -6,12 +6,6 @@ Trinn::transaction::Transfer::Transfer(QObject* parent) : Magnet(parent)
     //
 }
 
-Trinn::transaction::Transfer::Transfer(AFIdObject* object, QObject* parent)
-    : Magnet(object, parent)
-{
-    //
-}
-
 Trinn::transaction::Transfer::Transfer(AFIdObjectPtr ptr, QObject* parent)
     : Magnet(ptr, parent)
 {
@@ -20,12 +14,12 @@ Trinn::transaction::Transfer::Transfer(AFIdObjectPtr ptr, QObject* parent)
 
 void Trinn::transaction::Transfer::setSender(const TrinnAccountPtr sender)
 {
-    setSender(sender->object_b().toUInt64());
+    setSender(sender->afObject()->object_b().toUInt64());
 }
 
 void Trinn::transaction::Transfer::setRecipient(const TrinnAccountPtr recipient)
 {
-    setRecipient(recipient->object_b().toUInt64());
+    setRecipient(recipient->afObject()->object_b().toUInt64());
 }
 
 Trinn::subject::AccountPtr Trinn::transaction::Transfer::recipient() const
@@ -40,12 +34,12 @@ Trinn::subject::AccountPtr Trinn::transaction::Transfer::sender() const
 
 AFIdObject_bit Trinn::transaction::Transfer::recipientId() const
 {
-    return AFIdObject_bit(getAttribute(TrinnAttribute::Recipient).toUInt());
+    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Recipient).toUInt());
 }
 
 AFIdObject_bit Trinn::transaction::Transfer::senderId() const
 {
-    return AFIdObject_bit(getAttribute(TrinnAttribute::Sender).toUInt());
+    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Sender).toUInt());
 }
 
 void Trinn::transaction::Transfer::setSender(quint64 sender)
@@ -53,7 +47,7 @@ void Trinn::transaction::Transfer::setSender(quint64 sender)
     if (sender == senderId().toUInt64())
         return;
 
-    setAttribute(TrinnAttribute::Sender, sender);
+    m_ptr->setAttribute(TrinnAttribute::Sender, sender);
     emit senderChanged();
 }
 
@@ -62,6 +56,6 @@ void Trinn::transaction::Transfer::setRecipient(quint64 recipient)
     if (recipient == recipientId().toUInt64())
         return;
 
-    setAttribute(TrinnAttribute::Recipient, recipient);
+    m_ptr->setAttribute(TrinnAttribute::Recipient, recipient);
     emit recipientChanged();
 }

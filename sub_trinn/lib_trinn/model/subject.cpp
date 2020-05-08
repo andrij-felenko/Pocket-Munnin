@@ -19,7 +19,7 @@ Trinn::model::Subject::Subject(QObject *parent) : QObject(parent)
 Trinn::subject::AccountPtr Trinn::model::Subject::findAccount(AFIdObject_bit id)
 {
     for (auto it : trinnStorage()->m_accountV)
-        if (it->object_b() == id)
+        if (it->afObject()->object_b()==  id)
             return it;
     return subject::AccountPtr();
 }
@@ -27,7 +27,7 @@ Trinn::subject::AccountPtr Trinn::model::Subject::findAccount(AFIdObject_bit id)
 Trinn::subject::CategoryPtr Trinn::model::Subject::findCategory(AFIdObject_bit id)
 {
     for (auto it : trinnStorage()->m_categoryV)
-        if (it->object_b() == id)
+        if (it->afObject()->object_b() == id)
             return it;
     return subject::CategoryPtr();
 }
@@ -35,7 +35,7 @@ Trinn::subject::CategoryPtr Trinn::model::Subject::findCategory(AFIdObject_bit i
 Trinn::subject::ProjectPtr Trinn::model::Subject::findProject(AFIdObject_bit id)
 {
     for (auto it : trinnStorage()->m_projectV)
-        if (it->object_b() == id)
+        if (it->afObject()->object_b() == id)
             return it;
     return subject::ProjectPtr();
 }
@@ -43,7 +43,7 @@ Trinn::subject::ProjectPtr Trinn::model::Subject::findProject(AFIdObject_bit id)
 Trinn::subject::StorePtr Trinn::model::Subject::findStore(AFIdObject_bit id)
 {
     for (auto it : trinnStorage()->m_storeV)
-        if (it->object_b() == id)
+        if (it->afObject()->object_b() == id)
             return it;
     return subject::StorePtr();
 }
@@ -51,8 +51,8 @@ Trinn::subject::StorePtr Trinn::model::Subject::findStore(AFIdObject_bit id)
 void Trinn::model::Subject::restructorCategory()
 {
     for (auto it : storage()->m_categoryV)
-        if (it->object_b().template parentType <Type>() == Type::Category)
-            if (it->parentId() != 0)
+        if (it->afObject()->object_b().template parentType <Type>() == Type::Category)
+            if (it->afObject()->parentId() != 0)
                 for (auto parentIt : storage()->m_categoryV){
                     parentIt->addSubCategory(it);
                     break;

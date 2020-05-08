@@ -18,7 +18,6 @@ class Trinn::transaction::Income : public Magnet
 public:
     explicit Income(QObject *parent = nullptr);
     Income(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Income(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Income() = default;
 
     void setCategory (const TrinnCategoryPtr category);

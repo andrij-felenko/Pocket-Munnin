@@ -14,7 +14,6 @@ class Trinn::transaction::Transfer : public Magnet
     Q_OBJECT
 public:
     explicit Transfer(QObject* parent = nullptr);
-    Transfer(AFIdObject* object, QObject* parent = nullptr);
     Transfer(AFIdObjectPtr ptr,  QObject* parent = nullptr);
     virtual ~Transfer() = default;
 

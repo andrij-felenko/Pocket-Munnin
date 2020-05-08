@@ -9,7 +9,7 @@ int main(int argc, char** argv)
     app.setWindowIcon(QIcon(":/icon/af_base/af_logo.svg"));
     // TODO add company information
 
-    app.setAFaccountFlag(true);
+//    app.setAFaccountFlag(true);
     app.addPlugin(TrinnPluginPtr::create());
     app.show();
 

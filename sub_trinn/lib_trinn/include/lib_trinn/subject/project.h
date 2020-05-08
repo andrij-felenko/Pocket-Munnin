@@ -8,13 +8,12 @@ namespace Trinn::subject {
     typedef QSharedPointer <Project> ProjectPtr;
 }
 
-class Trinn::subject::Project : public QObject, public AFlib::id::Object
+class Trinn::subject::Project : public AFIdObjectTemplate
 {
     Q_OBJECT
 public:
     explicit Project(QObject *parent = nullptr);
     Project(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Project(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Project() = default;
 };
 

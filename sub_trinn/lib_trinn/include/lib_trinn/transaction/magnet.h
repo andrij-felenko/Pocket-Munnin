@@ -11,7 +11,7 @@ namespace Trinn::transaction {
     typedef QSharedPointer <Magnet> MagnetPtr;
 }
 
-class Trinn::transaction::Magnet : public QObject, public AFIdObject
+class Trinn::transaction::Magnet : public AFIdObjectTemplate
 {
     Q_OBJECT
     Q_PROPERTY(QDate  date     READ date    WRITE setDate    NOTIFY dateChanged)
@@ -22,7 +22,6 @@ class Trinn::transaction::Magnet : public QObject, public AFIdObject
 public:
     explicit Magnet(QObject *parent = nullptr);
     Magnet(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Magnet(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Magnet() = default;
 
     virtual QDate  date()  const final;

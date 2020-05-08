@@ -9,13 +9,12 @@ namespace Trinn::management {
     typedef QSharedPointer <Budgate> BudgatePtr;
 }
 
-class Trinn::management::Budgate : public QObject, public AFlib::id::Object
+class Trinn::management::Budgate : public AFIdObjectTemplate
 {
     Q_OBJECT
 public:
     explicit Budgate(QObject *parent = nullptr);
     Budgate(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Budgate(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Budgate() = default;
 };
 

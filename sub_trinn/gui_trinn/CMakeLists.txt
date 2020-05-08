@@ -9,6 +9,8 @@ set (trinn_cpp
      trinn.cpp
 )
 
+set (force_rc_business -Wl,--whole-archive rc_business -Wl,--no-whole-archive)
+
 set (CMAKE_AUTORCC ON)
 find_package(Qt5Core)
 find_package(Qt5Qml)
@@ -17,7 +19,12 @@ find_package(Qt5Quick)
 add_library(gui_trinn SHARED ${trinn_h} ${trinn_cpp} trinn_rc.qrc)
 
 set_target_properties(gui_trinn PROPERTIES PREFIX "plug_" OUTPUT_NAME "trinn")
-target_link_libraries(gui_trinn lib_baseAF lib_quickAF lib_currencyAF Qt5::Core Qt5::Quick Qt5::Qml)
+target_link_libraries(gui_trinn
+    ${force_rc_business}
+    lib_baseAF lib_quickAF lib_currencyAF
+    Qt5::Core Qt5::Quick Qt5::Qml
+)
+
 target_include_directories(gui_trinn
     PUBLIC  include
     PRIVATE include/gui_trinn

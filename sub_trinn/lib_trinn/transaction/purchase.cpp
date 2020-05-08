@@ -6,12 +6,6 @@ Trinn::transaction::Purchase::Purchase(QObject* parent) : Magnet(parent)
     //
 }
 
-Trinn::transaction::Purchase::Purchase(AFIdObject* object, QObject* parent)
-    : Magnet(object, parent)
-{
-    //
-}
-
 Trinn::transaction::Purchase::Purchase(AFIdObjectPtr ptr,  QObject* parent)
     : Magnet(ptr, parent)
 {
@@ -20,7 +14,7 @@ Trinn::transaction::Purchase::Purchase(AFIdObjectPtr ptr,  QObject* parent)
 
 void Trinn::transaction::Purchase::setSender(const TrinnAccountPtr sender)
 {
-    setSender(sender->object_b().toUInt64());
+    setSender(sender->afObject()->object_b().toUInt64());
 }
 
 Trinn::subject::AccountPtr Trinn::transaction::Purchase::sender() const
@@ -30,12 +24,12 @@ Trinn::subject::AccountPtr Trinn::transaction::Purchase::sender() const
 
 AFIdObject_bit Trinn::transaction::Purchase::senderId() const
 {
-    return AFIdObject_bit(getAttribute(TrinnAttribute::Sender).toUInt());
+    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Sender).toUInt());
 }
 
 void Trinn::transaction::Purchase::setCategory(const TrinnAccountPtr category)
 {
-    setCategory(category->object_b().toUInt64());
+    setCategory(category->afObject()->object_b().toUInt64());
 }
 
 Trinn::subject::CategoryPtr Trinn::transaction::Purchase::category() const
@@ -45,12 +39,12 @@ Trinn::subject::CategoryPtr Trinn::transaction::Purchase::category() const
 
 AFIdObject_bit Trinn::transaction::Purchase::categoryId() const
 {
-    return AFIdObject_bit(getAttribute(TrinnAttribute::Category).toUInt());
+    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Category).toUInt());
 }
 
 void Trinn::transaction::Purchase::setStore(const TrinnStorePtr store)
 {
-    setStore(store->object_b().toUInt64());
+    setStore(store->afObject()->object_b().toUInt64());
 }
 
 Trinn::subject::StorePtr Trinn::transaction::Purchase::store() const
@@ -60,7 +54,7 @@ Trinn::subject::StorePtr Trinn::transaction::Purchase::store() const
 
 AFIdObject_bit Trinn::transaction::Purchase::storeId() const
 {
-    return AFIdObject_bit(getAttribute(TrinnAttribute::Store).toUInt());
+    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Store).toUInt());
 }
 
 void Trinn::transaction::Purchase::setCategory(quint64 category)
@@ -68,7 +62,7 @@ void Trinn::transaction::Purchase::setCategory(quint64 category)
     if (category == categoryId().toUInt64())
         return;
 
-    setAttribute(TrinnAttribute::Category, category);
+    m_ptr->setAttribute(TrinnAttribute::Category, category);
     emit categoryChanged();
 }
 
@@ -77,7 +71,7 @@ void Trinn::transaction::Purchase::setSender(quint64 sender)
     if (sender == senderId().toUInt64())
         return;
 
-    setAttribute(TrinnAttribute::Sender, sender);
+    m_ptr->setAttribute(TrinnAttribute::Sender, sender);
     emit senderChanged();
 }
 
@@ -86,6 +80,6 @@ void Trinn::transaction::Purchase::setStore(quint64 store)
     if (store == storeId().toUInt64())
         return;
 
-    setAttribute(TrinnAttribute::Store, store);
+    m_ptr->setAttribute(TrinnAttribute::Store, store);
     emit storeChanged();
 }

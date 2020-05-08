@@ -9,13 +9,12 @@ namespace Trinn::subject {
     typedef QSharedPointer <Category> CategoryPtr;
 }
 
-class Trinn::subject::Category : public QObject, public AFIdObject
+class Trinn::subject::Category : public AFIdObjectTemplate
 {
     Q_OBJECT
 public:
     explicit Category(QObject *parent = nullptr);
     Category(AFIdObjectPtr ptr,  QObject *parent = nullptr);
-    Category(AFIdObject* object, QObject *parent = nullptr);
     virtual ~Category() = default;
 
     void addSubCategory(CategoryPtr ptr);

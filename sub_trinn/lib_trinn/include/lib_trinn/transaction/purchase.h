@@ -17,7 +17,6 @@ class Trinn::transaction::Purchase : public Magnet
     Q_OBJECT
 public:
     explicit Purchase(QObject* parent = nullptr);
-    Purchase(AFIdObject* object, QObject* parent = nullptr);
     Purchase(AFIdObjectPtr ptr,  QObject* parent = nullptr);
     virtual ~Purchase() = default;
 
