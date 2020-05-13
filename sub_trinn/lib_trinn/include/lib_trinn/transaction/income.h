@@ -22,16 +22,16 @@ public:
 
     void setCategory (const TrinnCategoryPtr category);
     virtual subject::CategoryPtr category()   const final;
-    virtual AFIdObject_bit       categoryId() const final;
+    virtual AFIdGlobal_bit       categoryId() const final;
 
     void setRecipient(const TrinnAccountPtr recipient);
     virtual subject::AccountPtr recipient()   const final;
-    virtual AFIdObject_bit      recipientId() const final;
+    virtual AFIdGlobal_bit      recipientId() const final;
 
 public slots:
     // TODO add pointers
-    void setCategory (quint64 category);
-    void setRecipient(quint64 recipient);
+    void setCategory (AFIdGlobal_bit category);
+    void setRecipient(AFIdGlobal_bit recipient);
 
 signals:
     void categoryChanged();

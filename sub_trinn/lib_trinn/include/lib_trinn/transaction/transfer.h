@@ -19,16 +19,16 @@ public:
 
     void setSender   (const TrinnAccountPtr sender);
     virtual subject::AccountPtr sender()   const final;
-    virtual AFIdObject_bit      senderId() const final;
+    virtual AFIdGlobal_bit      senderId() const final;
 
     void setRecipient(const TrinnAccountPtr recipient);
     virtual subject::AccountPtr recipient()   const final;
-    virtual AFIdObject_bit      recipientId() const final;
+    virtual AFIdGlobal_bit      recipientId() const final;
 
 public slots:
     // TODO add pointers
-    void setSender(quint64 sender);
-    void setRecipient(quint64 recipient);
+    void setSender(AFIdGlobal_bit sender);
+    void setRecipient(AFIdGlobal_bit recipient);
 
 signals:
     void senderChanged();

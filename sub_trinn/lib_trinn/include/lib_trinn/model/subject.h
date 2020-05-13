@@ -23,10 +23,10 @@ public:
     explicit Subject(QObject *parent = nullptr);
     virtual ~Subject() = default;
 
-    Trinn::subject::AccountPtr  findAccount (AFIdObject_bit id);
-    Trinn::subject::CategoryPtr findCategory(AFIdObject_bit id);
-    Trinn::subject::ProjectPtr  findProject (AFIdObject_bit id);
-    Trinn::subject::StorePtr    findStore   (AFIdObject_bit id);
+    Trinn::subject::AccountPtr  findAccount (AFIdGlobal_bit id);
+    Trinn::subject::CategoryPtr findCategory(AFIdGlobal_bit id);
+    Trinn::subject::ProjectPtr  findProject (AFIdGlobal_bit id);
+    Trinn::subject::StorePtr    findStore   (AFIdGlobal_bit id);
 
     void restructorCategory();
 };

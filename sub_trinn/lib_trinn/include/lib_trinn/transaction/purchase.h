@@ -22,20 +22,20 @@ public:
 
     void setSender(const TrinnAccountPtr sender);
     virtual subject::AccountPtr sender()   const final;
-    virtual AFIdObject_bit      senderId() const final;
+    virtual AFIdGlobal_bit      senderId() const final;
 
     void setCategory(const TrinnAccountPtr category);
     virtual subject::CategoryPtr category()   const final;
-    virtual AFIdObject_bit       categoryId() const final;
+    virtual AFIdGlobal_bit       categoryId() const final;
 
     void setStore(const TrinnStorePtr store);
     virtual subject::StorePtr store()   const final;
-    virtual AFIdObject_bit    storeId() const final;
+    virtual AFIdGlobal_bit    storeId() const final;
 
 public slots:
-    void setCategory(quint64 category);
-    void setSender(quint64 sender);
-    void setStore(quint64 store);
+    void setCategory(AFIdGlobal_bit category);
+    void setSender(AFIdGlobal_bit sender);
+    void setStore(AFIdGlobal_bit store);
 
 signals:
     void categoryChanged();

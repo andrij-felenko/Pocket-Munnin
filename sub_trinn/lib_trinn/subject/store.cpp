@@ -1,6 +1,8 @@
 #include "subject/store.h"
+#include "trinnStorage.h"
 
-Trinn::subject::Store::Store(QObject *parent) : AFIdObjectTemplate(parent)
+Trinn::subject::Store::Store(QObject *parent)
+    : AFIdObjectTemplate(pluginId, typeToInt(Type::Store), parent)
 {
     //
 }

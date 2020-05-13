@@ -1,4 +1,5 @@
 #include "transaction/magnet.h"
+#include "trinnStorage.h"
 
 Trinn::transaction::Magnet::Magnet(AFIdObjectPtr object, QObject *parent)
     : AFIdObjectTemplate(object, parent)
@@ -6,7 +7,14 @@ Trinn::transaction::Magnet::Magnet(AFIdObjectPtr object, QObject *parent)
     //
 }
 
-Trinn::transaction::Magnet::Magnet(QObject* parent) : AFIdObjectTemplate(parent)
+Trinn::transaction::Magnet::Magnet(QObject* parent)
+    : AFIdObjectTemplate(pluginId, typeToInt(Type::Magnet), parent)
+{
+    //
+}
+
+Trinn::transaction::Magnet::Magnet(Type type, QObject* parent)
+    : AFIdObjectTemplate(pluginId, typeToInt(type), parent)
 {
     //
 }

@@ -1,7 +1,7 @@
 #include "transaction/transfer.h"
 #include "model/subject.h"
 
-Trinn::transaction::Transfer::Transfer(QObject* parent) : Magnet(parent)
+Trinn::transaction::Transfer::Transfer(QObject* parent) : Magnet(Type::Transfer, parent)
 {
     //
 }
@@ -14,12 +14,12 @@ Trinn::transaction::Transfer::Transfer(AFIdObjectPtr ptr, QObject* parent)
 
 void Trinn::transaction::Transfer::setSender(const TrinnAccountPtr sender)
 {
-    setSender(sender->afObject()->object_b().toUInt64());
+    setSender(sender->afObject()->id());
 }
 
 void Trinn::transaction::Transfer::setRecipient(const TrinnAccountPtr recipient)
 {
-    setRecipient(recipient->afObject()->object_b().toUInt64());
+    setRecipient(recipient->afObject()->id());
 }
 
 Trinn::subject::AccountPtr Trinn::transaction::Transfer::recipient() const
@@ -32,30 +32,30 @@ Trinn::subject::AccountPtr Trinn::transaction::Transfer::sender() const
     return modelSubject()->findAccount(senderId());
 }
 
-AFIdObject_bit Trinn::transaction::Transfer::recipientId() const
+AFIdGlobal_bit Trinn::transaction::Transfer::recipientId() const
 {
-    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Recipient).toUInt());
+    return m_ptr->getIdAttribute(TrinnAttribute::Recipient);
 }
 
-AFIdObject_bit Trinn::transaction::Transfer::senderId() const
+AFIdGlobal_bit Trinn::transaction::Transfer::senderId() const
 {
-    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Sender).toUInt());
+    return m_ptr->getIdAttribute(TrinnAttribute::Sender);
 }
 
-void Trinn::transaction::Transfer::setSender(quint64 sender)
+void Trinn::transaction::Transfer::setSender(AFIdGlobal_bit sender)
 {
-    if (sender == senderId().toUInt64())
+    if (sender == senderId())
         return;
 
-    m_ptr->setAttribute(TrinnAttribute::Sender, sender);
+    m_ptr->setIdAttribute(TrinnAttribute::Sender, sender);
     emit senderChanged();
 }
 
-void Trinn::transaction::Transfer::setRecipient(quint64 recipient)
+void Trinn::transaction::Transfer::setRecipient(AFIdGlobal_bit recipient)
 {
-    if (recipient == recipientId().toUInt64())
+    if (recipient == recipientId())
         return;
 
-    m_ptr->setAttribute(TrinnAttribute::Recipient, recipient);
+    m_ptr->setIdAttribute(TrinnAttribute::Recipient, recipient);
     emit recipientChanged();
 }

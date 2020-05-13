@@ -1,7 +1,7 @@
 #include "transaction/income.h"
 #include "model/subject.h"
 
-Trinn::transaction::Income::Income(QObject* parent) : Magnet(parent)
+Trinn::transaction::Income::Income(QObject* parent) : Magnet(Type::Income, parent)
 {
     //
 }
@@ -14,12 +14,12 @@ Trinn::transaction::Income::Income(AFIdObjectPtr ptr,  QObject* parent)
 
 void Trinn::transaction::Income::setCategory(const TrinnCategoryPtr category)
 {
-    setCategory(category->afObject()->object_b().toUInt64());
+    setCategory(category->afObject()->id());
 }
 
 void Trinn::transaction::Income::setRecipient(const TrinnAccountPtr recipient)
 {
-    setRecipient(recipient->afObject()->object_b().toUInt64());
+    setRecipient(recipient->afObject()->id());
 }
 
 Trinn::subject::AccountPtr Trinn::transaction::Income::recipient() const
@@ -32,30 +32,30 @@ Trinn::subject::CategoryPtr Trinn::transaction::Income::category() const
     return modelSubject()->findCategory(categoryId());
 }
 
-AFIdObject_bit Trinn::transaction::Income::recipientId() const
+AFIdGlobal_bit Trinn::transaction::Income::recipientId() const
 {
-    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Recipient).toUInt());
+    return m_ptr->getIdAttribute(TrinnAttribute::Recipient);
 }
 
-AFIdObject_bit Trinn::transaction::Income::categoryId() const
+AFIdGlobal_bit Trinn::transaction::Income::categoryId() const
 {
-    return AFIdObject_bit(m_ptr->getAttribute(TrinnAttribute::Sender).toUInt());
+    return m_ptr->getIdAttribute(TrinnAttribute::Category);
 }
 
-void Trinn::transaction::Income::setCategory(quint64 category)
+void Trinn::transaction::Income::setCategory(AFIdGlobal_bit category)
 {
-    if (category == categoryId().toUInt64())
+    if (category == categoryId())
         return;
 
-    m_ptr->setAttribute(TrinnAttribute::Category, category);
+    m_ptr->setIdAttribute(TrinnAttribute::Category, category);
     emit categoryChanged();
 }
 
-void Trinn::transaction::Income::setRecipient(quint64 recipient)
+void Trinn::transaction::Income::setRecipient(AFIdGlobal_bit recipient)
 {
-    if (recipient == recipientId().toUInt64())
+    if (recipient == recipientId())
         return;
 
-    m_ptr->setAttribute(TrinnAttribute::Recipient, recipient);
+    m_ptr->setIdAttribute(TrinnAttribute::Recipient, recipient);
     emit recipientChanged();
 }

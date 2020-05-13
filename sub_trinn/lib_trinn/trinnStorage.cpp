@@ -26,7 +26,7 @@ void Trinn::Storage::reload()
         using namespace subject;
         using namespace transaction;
 
-        switch (it->uid_b().template type <Trinn::Type>()){
+        switch (it->object_b().template type <Trinn::Type>()){
 
         case Type::Income:     m_incomeV.push_back(IncomePtr  ::create(it)); break;
         case Type::Magnet:     m_magnetV.push_back(MagnetPtr  ::create(it)); break;

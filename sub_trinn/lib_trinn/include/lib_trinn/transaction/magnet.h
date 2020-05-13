@@ -43,6 +43,9 @@ signals:
     void valueChanged(double value);
     // TODO add currency
     void currencyCoefChanged(double newCurrencyCoef);
+
+protected:
+    Magnet(Type type, QObject *parent = nullptr);
 };
 
 #endif

@@ -1,8 +1,10 @@
 #include "subject/account.h"
+#include "trinnStorage.h"
 
 static TrinnAccountPtr _defaultAccountPtr;
 
-Trinn::subject::Account::Account(QObject *parent) : AFIdObjectTemplate(parent)
+Trinn::subject::Account::Account(QObject *parent)
+    : AFIdObjectTemplate(pluginId, typeToInt(Type::Account), parent)
 {
     //
 }

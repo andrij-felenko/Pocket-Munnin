@@ -1,6 +1,8 @@
 #include "subject/category.h"
+#include "trinnStorage.h"
 
-Trinn::subject::Category::Category(QObject *parent) : AFIdObjectTemplate(parent)
+Trinn::subject::Category::Category(QObject *parent)
+    : AFIdObjectTemplate(pluginId, typeToInt(Type::Category), parent)
 {
     //
 }
