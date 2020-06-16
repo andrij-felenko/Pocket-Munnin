@@ -4,16 +4,20 @@
 
 static Trinn::TransactionStoragePtr storage_ptr;
 
+uint Trinn::pluginId = 3;
+
 Trinn::StoragePtr Trinn::storage()
 {
-    if (storage_ptr.isNull())
+    if (storage_ptr.isNull()){
         storage_ptr = StoragePtr::create();
+        storage_ptr->init();
+    }
     return storage_ptr;
 }
 
 Trinn::Storage::Storage(QObject *parent) : QObject(parent)
 {
-    reload();
+    //
 }
 
 void Trinn::Storage::reload()
@@ -49,6 +53,19 @@ void Trinn::Storage::reload()
     // TODO
 
     modelSubject()->restructorCategory();
+}
+
+void Trinn::Storage::init()
+{
+    reload();
+
+    for (int i = 0; i < 1; i++){
+        auto p = transaction::IncomePtr::create();
+        auto ptr = p->afObjectPtr();
+        auto o = p->afObject();
+        p->save();
+        m_incomeV.push_back(p);
+    }
 }
 
 void Trinn::Storage::clear()

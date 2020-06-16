@@ -25,7 +25,7 @@ namespace Trinn {
         Store,
     };
 
-    quint8 typeToInt(Type type) { return static_cast <quint8>(type); }
+    quint8 typeToInt(Type type);
 
     enum class TrinnAttribute {
         TransactionValue = 0,

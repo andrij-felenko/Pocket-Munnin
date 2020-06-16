@@ -4,7 +4,7 @@
 #include <QtCore/QDateTime>
 #include <AFbaseLib>
 #include <AFcurrencyLib>
-#include "trinnEnum.h"
+#include "lib_trinn/trinnEnum.h"
 
 namespace Trinn::transaction {
     class Magnet;

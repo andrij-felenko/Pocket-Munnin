@@ -1,15 +1,12 @@
 ﻿#ifndef TRINN_LIB_STORAGE_H
 #define TRINN_LIB_STORAGE_H
 
-#include "management/budgate.h"
-#include "management/plan.h"
-#include "subject/account.h"
-#include "subject/category.h"
-#include "subject/project.h"
-#include "subject/store.h"
-#include "transaction/income.h"
-#include "transaction/purchase.h"
-#include "transaction/transfer.h"
+#include <Management/Budgate>
+#include <Management/Plan>
+#include <Subject/Project>
+#include <Transaction/Income>
+#include <Transaction/Purchase>
+#include <Transaction/Transfer>
 
 namespace Trinn {
     class Storage;
@@ -18,8 +15,8 @@ namespace Trinn {
     typedef Storage    TransactionStorage;
     typedef StoragePtr TransactionStoragePtr;
 
-    uint pluginId(3);
-    StoragePtr storage();
+    extern uint pluginId;
+    extern StoragePtr storage();
 
     namespace model {
         class Plan;
@@ -32,6 +29,8 @@ class Trinn::Storage final : public QObject
 {
 public:
     explicit Storage(QObject* parent = nullptr);
+
+    inline void init();
 
 private:
     void reload();

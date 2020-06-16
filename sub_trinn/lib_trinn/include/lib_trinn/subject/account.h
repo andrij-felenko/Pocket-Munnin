@@ -3,7 +3,7 @@
 
 #include <AFbaseLib>
 #include <AFcurrencyLib>
-#include "trinnEnum.h"
+#include <Trinn/Enum>
 
 namespace Trinn::subject {
     class Account;

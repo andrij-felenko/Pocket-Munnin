@@ -2,9 +2,9 @@
 #define TRINN_LIB_TRANSACTION_INCOME_H
 
 #include <AFbaseLib>
-#include "magnet.h"
-#include "subject/account.h"
-#include "subject/category.h"
+#include <Transaction/Magnet>
+#include <Subject/Account>
+#include <Subject/Category>
 
 namespace Trinn::transaction {
     class Income;

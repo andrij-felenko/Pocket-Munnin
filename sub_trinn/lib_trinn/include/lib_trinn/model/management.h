@@ -2,8 +2,8 @@
 #define TRINN_LIB_MODEL_MANAGEMENT_H
 
 #include <AFbaseLib>
-#include "management/budgate.h"
-#include "management/plan.h"
+#include <Management/Budgate>
+#include <Management/Plan>
 
 namespace Trinn {
     namespace model {

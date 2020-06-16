@@ -1,20 +1,22 @@
 #ifndef TRINN_LIB_ALL_H
 #define TRINN_LIB_ALL_H
 
-#include "trinnEnum.h"
-#include "trinnStorage.h"
-#include "model/management.h"
-#include "model/subject.h"
-#include "model/transaction.h"
-#include "management/budgate.h"
-#include "management/plan.h"
-#include "subject/account.h"
-#include "subject/category.h"
-#include "subject/project.h"
-#include "subject/store.h"
-#include "transaction/income.h"
-#include "transaction/magnet.h"
-#include "transaction/purchase.h"
-#include "transaction/transfer.h"
+#include <Storage>
+
+//#include "lib_trinn/trinnEnum.h"
+//#include "lib_trinn/trinnStorage.h"
+//#include "lib_trinn/model/management.h"
+//#include "lib_trinn/model/subject.h"
+//#include "lib_trinn/model/transaction.h"
+//#include "lib_trinn/management/budgate.h"
+//#include "lib_trinn/management/plan.h"
+//#include "lib_trinn/subject/account.h"
+//#include "lib_trinn/subject/category.h"
+//#include "lib_trinn/subject/project.h"
+//#include "lib_trinn/subject/store.h"
+//#include "lib_trinn/transaction/income.h"
+//#include "lib_trinn/transaction/magnet.h"
+//#include "lib_trinn/transaction/purchase.h"
+//#include "lib_trinn/transaction/transfer.h"
 
 #endif

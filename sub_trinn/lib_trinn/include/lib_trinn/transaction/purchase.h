@@ -2,10 +2,10 @@
 #define TRINN_LIB_TRANSACTION_PURCHASE_H
 
 #include <AFbaseLib>
-#include "magnet.h"
-#include "subject/account.h"
-#include "subject/category.h"
-#include "subject/store.h"
+#include <Transaction/Magnet>
+#include <Subject/Account>
+#include <Subject/Category>
+#include <Subject/Store>
 
 namespace Trinn::transaction {
     class Purchase;

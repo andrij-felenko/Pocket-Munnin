@@ -1,8 +1,8 @@
 #ifndef TRINN_LIB_TRANSACTION_TRANSFER_H
 #define TRINN_LIB_TRANSACTION_TRANSFER_H
 
-#include "transaction/magnet.h"
-#include "subject/account.h"
+#include <Trinn/Transaction/Magnet>
+#include <Trinn/Subject/Account>
 
 namespace Trinn::transaction {
     class Transfer;

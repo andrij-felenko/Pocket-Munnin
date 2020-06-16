@@ -3,7 +3,8 @@
 
 Trinn::transaction::Income::Income(QObject* parent) : Magnet(Type::Income, parent)
 {
-    //
+    auto obj = afObject();
+    qDebug() << obj->owner();
 }
 
 Trinn::transaction::Income::Income(AFIdObjectPtr ptr,  QObject* parent)

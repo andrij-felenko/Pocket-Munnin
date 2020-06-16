@@ -1,13 +1,13 @@
 #include "trinn.h"
+#include <TrinnLib>
 
 Trinn::Plugin::Plugin(QObject *parent) : AFquick::GuiPlugin("Trinn", parent)
 {
-    //
+    Trinn::storage();
 }
 
 QString Trinn::Plugin::icon() const
 {
-//    return "qrc:/icon/af_base/af_logo.svg";
     return "qrc:/icon/business/coins.svg";
 }
 
