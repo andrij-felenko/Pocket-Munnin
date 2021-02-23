@@ -2,10 +2,10 @@
 #include <TrinnGui>
 #include <QtGui/QIcon>
 #include <QDir>
+#include "AFbaseLib"
 
 int main(int argc, char** argv)
 {
-    QCoreApplication::setOrganizationName("Afide");
     AFquick::GuiApplication app(argc, argv);
 
     Q_INIT_RESOURCE(rc_af_base);

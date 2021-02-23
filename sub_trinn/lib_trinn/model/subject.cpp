@@ -50,7 +50,7 @@ Trinn::subject::StorePtr Trinn::model::Subject::findStore(AFIdGlobal_bit id)
 
 void Trinn::model::Subject::restructorCategory()
 {
-    for (auto it : storage()->m_categoryV)
+    for (const auto &it : storage()->m_categoryV)
         if (it->afObject()->parent().template type <Type>() == Type::Category)
             if (not it->afObject()->parent().isEmpty())
                 for (auto parentIt : storage()->m_categoryV){
